@@ -2,7 +2,7 @@ CXX := clang++
 RTTIFLAG := -fno-rtti
 LLVMCONFIG := /home/aditya/llvm/bin/llvm-config
 
-CXXFLAGS := -I$(shell $(LLVMCONFIG) --src-root)/tools/clang/include -I$(shell $(LLVMCONFIG) --obj-root)/tools/clang/include $(shell $(LLVMCONFIG) --cxxflags) $(RTTIFLAG)
+CXXFLAGS := -I$(shell $(LLVMCONFIG) --includedir) $(shell $(LLVMCONFIG) --cxxflags) $(RTTIFLAG)
 LLVMLDFLAGS := $(shell $(LLVMCONFIG) --ldflags --libs )
 
 SOURCES = file.cpp
