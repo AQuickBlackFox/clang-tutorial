@@ -18,16 +18,11 @@ using namespace clang::driver;
 using namespace clang::tooling;
 using namespace llvm;
 
+static llvm::cl::OptionCategory ToolingSampleCategory("Tooling Sample");
 
 int main(int argc, const char **argv) {
-    cl::OptionCategory MyToolCategory("Example1");    
-    // parse the command-line args passed to your code
-    CommonOptionsParser op(argc, argv, MyToolCategory);        
-    // create a new Clang Tool instance (a LibTooling environment)
-    ClangTool Tool(op.getCompilations(), op.getSourcePathList());
-
-    // run the Clang Tool, creating a new FrontendAction (explained below)
-    return 0;
+		CommonOptionsParser op(argc, argv, ToolingSampleCategory);
+		ClangTool Tool(op.getCompilations(), op.getSourcePathList());
 }
 
 
