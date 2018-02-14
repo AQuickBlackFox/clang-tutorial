@@ -1,4 +1,4 @@
-CXX := clang++
+CXX := g++
 RTTIFLAG := -fno-rtti
 LLVMCONFIG := ~/llvm/bin/llvm-config
 

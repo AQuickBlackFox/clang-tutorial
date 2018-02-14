@@ -28,6 +28,12 @@ public:
         }
         return true;
     }
+    bool VisitIfStmt(IfStmt *If) {
+        Stmt* then = If->getThen();
+        then->dump();
+        llvm::errs()<<"Found an IF stmt \n";
+        return true;
+    }
 private:
     Rewriter &TheRewriter;
 };
@@ -65,14 +71,12 @@ private:
 };
 
 int main(int argc, const char **argv) {
-    cl::OptionCategory MyToolCategory("Example1");    
+    cl::OptionCategory MyToolCategory("Example1");
     // parse the command-line args passed to your code
-    CommonOptionsParser op(argc, argv, MyToolCategory);        
+    CommonOptionsParser op(argc, argv, MyToolCategory);
     // create a new Clang Tool instance (a LibTooling environment)
     ClangTool Tool(op.getCompilations(), op.getSourcePathList());
 
     // run the Clang Tool, creating a new FrontendAction (explained below)
     return Tool.run(newFrontendActionFactory<MyFrontendAction>().get());
 }
-
-
