@@ -41,3 +41,7 @@ all: $(OBJECTS) $(EXES)
 clean:
 	rm -f $(EXES) $(OBJECTS) *~
 
+t01:
+	~/llvm60/bin/clang++ -Xclang -ast-dump -fsyntax-only t01.cpp
+t02:
+	~/llvm60/bin/clang++ -Xclang -ast-dump -fsyntax-only t02.cpp
